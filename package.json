@@ -1,0 +1,68 @@
+{
+  "name": "enfsaddins",
+  "version": "0.0.1",
+  "description": "Additional methods for node fs module",
+  "license": "CC-BY-4.0",
+  "author": {
+    "name": "Joao Parreira",
+    "email": "joaofrparreira@gmail.com"
+  },
+  "homepage": "https://github.com/n3okill/enfsaddins",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n3okill/enfsaddins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/n3okill/enfsaddins/issues"
+  },
+  "engines": {
+    "node": ">=4.2.4"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test",
+    "appveyor": "node ./node_modules/mocha/bin/mocha --reporter spec --require should test/*.js"
+  },
+  "devDependencies": {
+    "eslint": "2.1.0",
+    "eslint-plugin-mocha": "2.0.0",
+    "mocha": "2.4.5",
+    "should": "8.2.2",
+    "enfspatch": ">=0.0.1"
+  },
+  "keywords": [
+    "fs",
+    "file",
+    "dir",
+    "directory",
+    "link",
+    "symlink",
+    "exists",
+    "existsSync",
+    "exisStat",
+    "existLStat",
+    "existFStat",
+    "existStatSync",
+    "existLStatSync",
+    "existFStatSync",
+    "existAccess",
+    "existAccessSync",
+    "existStatIsDirectory",
+    "existLStatIsDirectory",
+    "existFStatIsDirectory",
+    "existStatIsFile",
+    "existLStatIsFile",
+    "existFStatIsFile",
+    "existIsSymlink",
+    "existStatIsDirectorySync",
+    "existLStatIsDirectorySync",
+    "existFStatIsDirectorySync",
+    "existStatIsFileSync",
+    "existLStatIsFileSync",
+    "existFStatIsFileSync",
+    "existIsSymlinkSync"
+  ]
+}
