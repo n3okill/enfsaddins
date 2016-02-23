@@ -7,7 +7,7 @@
 
 enfsaddins
 =========
-Additional methods and patches for node fs module
+Additional methods for node fs module
 
 **enfs** stands for [E]asy [N]ode [fs]
 
