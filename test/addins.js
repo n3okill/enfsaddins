@@ -13,10 +13,11 @@
 
 "use strict";
 
-var enfspatch = require("enfspatch");
+//trying not to mess with original fs module
+var nodeFs = require("clone")(require("fs"));
 
 describe("enfsaddins", function () {
-    var fs = require("../")(enfspatch);
+    var fs = require("../")(nodeFs);
     describe("> existStat", function () {
         describe("> async", function () {
             it("should test true for async __filename", function (done) {
