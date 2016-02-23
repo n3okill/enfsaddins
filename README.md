@@ -5,7 +5,7 @@
 
 [![NPM](https://nodei.co/npm/enfsaddins.png)](https://nodei.co/npm/enfsaddins/)
 
-enfspatch
+enfsaddins
 =========
 Additional methods and patches for node fs module
 
