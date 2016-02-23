@@ -1,6 +1,6 @@
 {
   "name": "enfsaddins",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Additional methods for node fs module",
   "license": "CC-BY-4.0",
   "author": {
@@ -31,7 +31,7 @@
     "eslint-plugin-mocha": "2.0.0",
     "mocha": "2.4.5",
     "should": "8.2.2",
-    "clone":"1.0.2"
+    "clone": "1.0.2"
   },
   "keywords": [
     "fs",
