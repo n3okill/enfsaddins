@@ -6,73 +6,73 @@
  * @copyright Copyright(c) 2016 Joao Parreira <joaofrparreira@gmail.com>
  * @licence Creative Commons Attribution 4.0 International License
  * @createdAt Created at 18-02-2016.
- * @version 0.0.1
+ * @version 0.1.1
  */
 
-/* global describe, require, it, __filename */
+/* global describe, require, it, __filename, should */
 
 "use strict";
 
-//trying not to mess with original fs module
-var nodeFs = require("clone")(require("fs"));
+//avoid messing with original fs module
+const copyFs = require("clone")(require("fs"));
 
 describe("enfsaddins", function () {
-    var fs = require("../")(nodeFs);
+    const fs = require("../")(copyFs);
     describe("> existStat", function () {
         describe("> async", function () {
-            it("should test true for async __filename", function (done) {
-                fs.existStat(__filename, function (err, result) {
-                    result.should.be.equal(true);
+            function existStat(path, result, done) {
+                fs.existStat(path, function (err, res) {
+                    (err === null).should.be.equal(true);
+                    res.should.be.equal(result);
                     done();
                 });
+            }
+
+            it("should test true for async __filename", function (done) {
+                existStat(__filename, true, done);
             });
             it("should test false for async non-existent file", function (done) {
-                fs.existStat("/not/existent/file", function (err, result) {
-                    result.should.be.equal(false);
-                    done();
-                });
+                existStat("/not/existent/file", false, done);
             });
         });
         describe("> sync", function () {
-            it("should test true for sync __filename", function (done) {
+            it("should test true for sync __filename", function () {
                 fs.existStatSync(__filename).should.be.equal(true);
-                done();
             });
-            it("should test false for sync non-existent file", function (done) {
+            it("should test false for sync non-existent file", function () {
                 fs.existStatSync("/not/existent/file").should.be.equal(false);
-                done();
             });
         });
     });
     describe("> existAccess", function () {
         describe("> async", function () {
-            it("should test true for async __filename", function (done) {
-                fs.existAccess(__filename, function (err, result) {
-                    result.should.be.equal(true);
+            function existAccess(path, result, done) {
+                fs.existAccess(path, function (err, res) {
+                    (err === null).should.be.equal(true);
+                    res.should.be.equal(result);
                     done();
                 });
+            }
+
+            it("should test true for async __filename", function (done) {
+                existAccess(__filename, true, done);
             });
             it("should test false for async non-existent file", function (done) {
-                fs.existAccess("/not/existent/file", function (err, result) {
-                    result.should.be.equal(false);
-                    done();
-                });
+                existAccess("/not/existent/file", false, done);
             });
         });
         describe("> sync", function () {
-            it("should test true for sync __filename", function (done) {
+            it("should test true for sync __filename", function () {
                 fs.existAccessSync(__filename).should.be.equal(true);
-                done();
             });
-            it("should test false for sync non-existent file", function (done) {
+            it("should test false for sync non-existent file", function () {
                 fs.existAccessSync("/not/existent/file").should.be.equal(false);
-                done();
             });
         });
     });
     describe("> multiple methods of exist and is of type", function () {
         describe("> async", function () {
-            var methods = ["existStatIsDirectory", "existLStatIsDirectory", "existFStatIsDirectory",
+            const methods = ["existStatIsDirectory", "existLStatIsDirectory", "existFStatIsDirectory",
                 "existStatIsFile", "existLStatIsFile", "existFStatIsFile",
                 "existIsSymlink"];
             it("should test methods existence", function () {
@@ -85,7 +85,7 @@ describe("enfsaddins", function () {
                     (err === null).should.be.equal(true);
                     result.should.be.equal(true);
                     fs.existStatIsDirectory(__filename, function (errFile, resultFile) {
-                        (err === null).should.be.equal(true);
+                        (errFile === null).should.be.equal(true);
                         resultFile.should.be.equal(false);
                         done();
                     });
@@ -105,7 +105,7 @@ describe("enfsaddins", function () {
         });
         describe("> sync", function () {
             it("should test methods existence", function () {
-                var methods = ["existStatIsDirectorySync", "existLStatIsDirectorySync", "existFStatIsDirectorySync",
+                const methods = ["existStatIsDirectorySync", "existLStatIsDirectorySync", "existFStatIsDirectorySync",
                     "existStatIsFileSync", "existLStatIsFileSync", "existFStatIsFileSync",
                     "existIsSymlinkSync"];
                 methods.forEach(function (item) {
