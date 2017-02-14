@@ -9,7 +9,7 @@
  * @version 0.1.1
  */
 
-/* global describe, require, it, __filename, should */
+/* global describe, require, it, __filename */
 
 "use strict";
 
