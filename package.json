@@ -1,6 +1,6 @@
 {
   "name": "enfsaddins",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Additional methods for node fs module",
   "license": "CC-BY-4.0",
   "author": {
