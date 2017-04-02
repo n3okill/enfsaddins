@@ -148,7 +148,7 @@ Sync:
   - **existFStatSync(path)**
 
 ```js
-    enfs.existFStat("/etc/passwd", function(err,itemExists){
+    enfs.existFStat(enfs.openSync("/etc/passwd","r"), function(err,itemExists){
         console.log(itemExists ? "it\'s there" : "don\'t exist");
     });
 ```
